@@ -1,0 +1,18 @@
+# backend/Dockerfile
+
+FROM golang:latest
+
+WORKDIR /app
+
+COPY . .
+
+# Install dependencies
+RUN go mod download
+
+# Build the backend application
+RUN go build -o main .
+
+EXPOSE 8080
+
+# Run the backend application
+CMD ["./main"]
