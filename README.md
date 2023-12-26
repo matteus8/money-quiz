@@ -1,2 +1,2 @@
 # money-quiz
-Written in go, with a quiz and DB (using kubernetes cluster) to tell the user how much money is needed for a particular state in the U.S. based on their living conditions. (I.E. does the user need netflix? / does the user shop organic foods?)
+Written in mostly go(frontend using html/css/java), with a quiz and DB (using kubernetes cluster) to tell the user how much money is needed for a particular state in the U.S. based on their living conditions. (I.E. does the user need netflix? / does the user shop organic foods?)
