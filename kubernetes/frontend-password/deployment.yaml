@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: password-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: password
+  template:
+    metadata:
+      labels:
+        app: password
+    spec:
+      containers:
+      - name: password-container
+        image: lala27/password-form:2.0
+        ports:
+        - containerPort: 8080

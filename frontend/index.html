@@ -1,27 +1,27 @@
-<!-- frontend/index.html -->
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
-    <title>Quiz App</title>
+  <meta charset="utf-8">
+  <link rel="stylesheet" type="text/css" href="styles.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fancy Quiz</title>
 </head>
 <body>
-    <div class="quiz-container">
-        <h1>Quiz App</h1>
-        <!-- TODO: Add quiz questions and answer options dynamically using JavaScript -->
-        <div id="question-container">
-            <p id="question">Loading...</p>
-            <div id="options-container"></div>
-            <button onclick="submitAnswer()">Submit Answer</button>
-        </div>
-        <div id="result-container">
-            <h2>Quiz Result</h2>
-            <p id="result">Loading...</p>
-        </div>
+  <div id="quiz-container">
+    <h1>Fancy Quiz</h1>
+    <div id="quiz-questions-container"> <!-- Updated container for quiz questions -->
+      <div id="question-container">
+        <p id="question-text">Loading question...</p>
+        <div id="options-container"></div>
+      </div>
+      <button id="next-btn" onclick="nextQuestion()">Next</button>
     </div>
-    <script src="script.js"></script>
+    <div id="result-container" class="hidden">
+      <h2>Quiz Results</h2>
+      <p id="quiz-results"></p>
+      <button onclick="resetQuiz()">Retry Quiz</button>
+    </div>
+  </div>
+  <script src="script.js"></script>
 </body>
 </html>
