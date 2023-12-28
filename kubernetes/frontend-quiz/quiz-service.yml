@@ -1,0 +1,14 @@
+# quiz-service.yaml
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: quizapp-clusterip  # this is what python app is looking for the redirect
+spec:
+  selector:
+    app: quiz
+  ports:
+  - protocol: TCP
+    port: 8080
+    targetPort: 8080
+  type: ClusterIP  # Use ClusterIP instead of LoadBalancer to only expose service within the cluster
