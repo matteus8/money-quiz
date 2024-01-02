@@ -26,7 +26,7 @@ def check_password():
         retry_count -= 1
 
         if retry_count > 0:
-            return render_template('passwaord_form.html', retry_count=retry_count, message='Password is incorrect! Please try again.')
+            return render_template('password_form.html', retry_count=retry_count, message='Password is incorrect! Please try again.')
         else:
             retry_count = 3  # Reset retry count on reaching maximum attempts
             return render_template('password_form.html', retry_count=retry_count, message='Too many incorrect attempts. Please try again later.'), 401
@@ -35,7 +35,8 @@ def check_password():
 @app.route('/redirect-to-quizapp')
 def redirect_to_quizapp():
     # Ensure the Kubernetes Service File in the Cluster uses this quizapp name and namespace:
-    return redirect('http://quizapp-clusterip.default.svc.cluster.local:8080')
+    #return redirect('http://quizapp-clusterip.default.svc.cluster.local:8080')
+    return redirect('http://quizapp.default.svc.cluster.local:8080')
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=8080)
