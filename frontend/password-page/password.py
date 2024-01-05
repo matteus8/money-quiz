@@ -2,10 +2,10 @@ from flask import Flask, render_template, request, redirect
 
 app = Flask(__name__)
 
-# Hardcoded secret password (for demonstration purposes)
-secret_password = "supersecret"
+# Hardcoded secret password
+secret_password = "admin"
 
-# Counter to keep track of the number of attempts
+# Counter to keep track of the number of password attempts
 retry_count = 3
 
 @app.route('/')
@@ -35,11 +35,8 @@ def check_password():
 @app.route('/redirect-to-quizapp')
 def redirect_to_quizapp():
     # Ensure the Kubernetes Service File in the Cluster uses this quizapp name and namespace:
-    #return redirect('http://quizapp-clusterip.default.svc.cluster.local:8080') #<-- this is when using clusterIP LB
-    #return redirect('http://192.168.49.2:31798') #<-- this is when using nodeport, I got the port after deploying the service
-    print("redirecting to quiz app") #troubleshooting
-    return redirect('http://127.0.0.1:52997')    #<-- this is when using nodeport, and local testing
-
+    return redirect('http://quizapp.default.svc.cluster.local:8080') #<-- this is when using clusterIP
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=8080)
+
