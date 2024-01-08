@@ -41,9 +41,9 @@ def check_password():
 @app.route('/redirect-to-quizapp')
 def redirect_to_quizapp():
     print("Redirecting to http://quizapp.default.svc.cluster.local:8080")
-    # Ensure the Kubernetes Service File in the Cluster uses this quizapp name and namespace:
-    #return redirect('http://quizapp.default.svc.cluster.local:8080') #<-- this is when using ClusterIP
-    return redirect('http://quizapp:8080')
+    #return redirect('http://quizapp.default.svc.cluster.local:8080') #build 4.1.3
+    return redirect('http://quizapp:8080') #build 4.1.4
+    return redirect('http://quizapp') #build 4.1.5
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=8080, debug=True)
