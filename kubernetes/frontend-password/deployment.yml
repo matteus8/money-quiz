@@ -14,6 +14,6 @@ spec:
     spec:
       containers:
       - name: password-container
-        image: lala27/password-form:4.1.3
+        image: lala27/password-form-test:1.1.2
         ports:
         - containerPort: 8080

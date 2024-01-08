@@ -14,6 +14,6 @@ spec:
     spec:
       containers:
       - name: quiz-container
-        image: lala27/quiz-app:2.0
+        image: lala27/quiz-app-test:1.0
         ports:
         - containerPort: 8080

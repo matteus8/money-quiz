@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" type="text/css" href="styles.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fancy Quiz</title>
+</head>
+<body>
+  <div id="quiz-container">
+    <h1>Fancy Quiz</h1>
+    <div id="quiz-questions-container"> <!-- Updated container for quiz questions -->
+      <div id="question-container">
+        <p id="question-text">Loading question...</p>
+        <div id="options-container"></div>
+      </div>
+      <button id="next-btn" onclick="nextQuestion()">Next</button>
+    </div>
+    <div id="result-container" class="hidden">
+      <h2>Quiz Results</h2>
+      <p id="quiz-results"></p>
+      <button onclick="resetQuiz()">Retry Quiz</button>
+    </div>
+    <div id="message-container">    <!-- new stuff-->
+      <h2>Message from Pod 1:</h2>
+      <p id="pod1-message"></p>
+    </div>
+  </div>                            <!-- end new stuff-->
+  <script src="script.js"></script>
+</body>
+</html>
