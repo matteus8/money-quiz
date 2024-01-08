@@ -10,7 +10,7 @@ secret_password = "admin"
 retry_count = 3
 
 # URL of the endpoint in Pod 2 to send messages
-pod2_endpoint_url = "http://quizapp.default.svc.cluster.local:8080/message-from-pod1"
+pod2_endpoint_url = "http://127.0.0.1:54969"
 
 @app.route('/')
 def index():
