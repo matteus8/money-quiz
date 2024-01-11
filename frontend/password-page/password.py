@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, redirect
+from flask import Flask, render_template, request, redirect, send_from_directory
 
 app = Flask(__name__)
 
@@ -40,14 +40,8 @@ def check_password():
 # Add a route to handle the redirection
 @app.route('/redirect-to-quizapp')
 def redirect_to_quizapp():
-    print("Redirecting to http://quizapp.default.svc.cluster.local:8080")
-    return redirect('http://quizapp.default.svc.cluster.local:8080') #build 4.1.3
-    #return redirect('http://quizapp:8080') #build 4.1.4
-    #return redirect('http://quizapp') #build 4.1.5
-    #because we are testing locally, when the redirect occurs, the browser breaks the tunnel connections
-    #and tries to access the quiz pod through the cluster IP, which is not available to localhost without the tunnel
-    #knowing this i will try to use localhost as the redirct...
-    #return redirect('127.0.0.1:8080') #build 4.1.7 --- this did not work
+    print("Redirecting to frontend/quiz-page/index.html")
+    return send_from_directory('frontend', 'quiz-page/index.html')
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=8080, debug=True)
