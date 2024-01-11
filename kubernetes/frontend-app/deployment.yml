@@ -18,9 +18,9 @@ spec:
         ports:
         - containerPort: 80
         volumeMounts:
-        - name: html-volume
+        - name: frontend-app-volume
           mountPath: /usr/local/apache2/htdocs
       volumes:
-      - name: html-volume
-        configMap:
-          name: frontend-configmap
+      - name: frontend-app-volume
+        persistentVolumeClaim:
+          claimName: frontend-app-pvc
