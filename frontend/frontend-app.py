@@ -1,6 +1,10 @@
-from flask import Flask, render_template, request, redirect, send_from_directory
+from flask import Flask, render_template, request, redirect, url_for, send_from_directory
+import os
 
 app = Flask(__name__)
+
+# Get the directory of the current script
+script_dir = os.path.dirname(os.path.abspath(__file__))
 
 # Hardcoded secret password
 secret_password = "admin"
@@ -37,11 +41,15 @@ def check_password():
             print("Too many incorrect attempts. Please try again later.")
             return render_template('password_form.html', retry_count=retry_count, message='Too many incorrect attempts. Please try again later.'), 401
 
-# Add a route to handle the redirection
+
 @app.route('/redirect-to-quizapp')
 def redirect_to_quizapp():
-    print("Redirecting to frontend/quiz-page/index.html")
-    return send_from_directory('frontend', 'quiz-page/index.html')
+    return render_template('quiz-page/index.html')
+
+
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=8080, debug=True)
+
+
+
