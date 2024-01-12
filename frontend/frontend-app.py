@@ -15,7 +15,7 @@ retry_count = 3
 @app.route('/')
 def index():
     print("Rendering password_form.html")
-    return render_template('password_form.html', retry_count=retry_count)
+    return render_template('index.html', retry_count=retry_count)
 
 @app.route('/check-password', methods=['POST'])
 def check_password():

@@ -1,0 +1,13 @@
+#make frontend-app.py the default home page for apache httpd
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: apache-config
+data:
+  httpd.conf: |
+    <Directory "/usr/local/apache2/htdocs">
+        DirectoryIndex frontend-app.py
+        Options Indexes FollowSymLinks
+        AllowOverride All
+        Require all granted
+    </Directory>

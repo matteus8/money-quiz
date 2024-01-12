@@ -8,4 +8,4 @@ spec:
   accessModes:
     - ReadWriteOnce
   hostPath:
-    path: /path/to/your/app/files
+    path: C:\Users\camac\OneDrive\Desktop\money-quiz\frontend

@@ -24,3 +24,6 @@ spec:
       - name: frontend-app-volume
         persistentVolumeClaim:
           claimName: frontend-app-pvc
+      - name: apache-config-volume
+        configMap:
+          name: apache-config
