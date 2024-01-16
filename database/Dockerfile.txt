@@ -1,9 +1,1 @@
-# database/Dockerfile
-
-FROM redis:latest
-
-# Expose the default Redis port
-EXPOSE 6379
-
-# You can add additional configuration or initialization steps if needed
-# For example, copying a custom configuration file or initializing data
+#Use the dockerimage postgres on a virtual machine in Digital Ocean

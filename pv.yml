@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: PersistentVolume
 metadata:
-  name: frontend-app-pv
+  name: external-quiz-db
 spec:
   capacity:
     storage: 1Gi

@@ -92,6 +92,8 @@ function displayResults() {
     return acc;
   }, 0);
 
+  userScore = score; // Store the score
+
   // Display results
   console.log('Setting display to block for resultContainer');
   const resultContainer = document.getElementById('result-container');
@@ -102,6 +104,46 @@ function displayResults() {
   quizQuestionsContainer.style.display = 'none';
 
   quizResults.textContent = `Your score: ${score}/${questions.length}`;
+  displayGrade(score);
+}
+
+function displayGrade(score) {
+  const totalQuestions = questions.length;
+  const percentage = (score / totalQuestions) * 100;
+
+  let grade;
+
+  if (percentage >= 90) {
+    grade = 'A';
+  } else if (percentage >= 80) {
+    grade = 'B';
+  } else if (percentage >= 70) {
+    grade = 'C';
+  } else if (percentage >= 60) {
+    grade = 'D';
+  } else {
+    grade = 'F';
+  }
+
+  const gradeContainer = document.getElementById('grade-container');
+  gradeContainer.textContent = `Your grade: ${grade}`;
+}
+
+function sendGradeToServer(grade) {
+  fetch('http://your-go-app-service:8080/saveGrade', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({ grade }),
+  })
+    .then(response => response.json())
+    .then(result => {
+      console.log('Grade sent successfully:', result);
+    })
+    .catch(error => {
+      console.error('Error sending grade:', error);
+    });
 }
 
 function finishQuiz() {
