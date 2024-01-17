@@ -130,7 +130,7 @@ function displayGrade(score) {
 }
 
 function sendGradeToServer(grade) {
-  fetch('http://your-go-app-service:8080/saveGrade', {
+  fetch('http://backend:8080/saveGrade', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',

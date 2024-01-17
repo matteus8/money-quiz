@@ -16,11 +16,11 @@ type GradeRequestBody struct {
 
 // Database connection parameters
 const (
-	dbHost     = "143.244.161.186" // Replace with your PostgreSQL host
-	dbPort     = 5432              // Default PostgreSQL port
-	dbUser     = "postgresql"      // Replace with your PostgreSQL user
-	dbPassword = "admin123"        // Replace with your PostgreSQL password
-	dbName     = "postgres"        // Replace with your PostgreSQL database name
+	dbHost     = "157.230.48.116" // Update with your PostgreSQL host IP
+	dbPort     = 5432             // Default PostgreSQL port
+	dbUser     = "postgresql"     // Replace with your PostgreSQL user
+	dbPassword = "admin123"       // Replace with your PostgreSQL password
+	dbName     = "postgres"       // Replace with your PostgreSQL database name
 )
 
 func main() {
@@ -57,6 +57,7 @@ func saveGradeHandler(w http.ResponseWriter, r *http.Request) {
 
 	// Now you have the grade in requestBody.Grade
 	grade := requestBody.Grade
+	fmt.Printf("Received grade: %s\n", grade)
 
 	// Save the grade to the PostgreSQL database
 	err = saveGradeToDatabase(grade)
@@ -79,14 +80,16 @@ func saveGradeToDatabase(grade string) error {
 	// Open a connection to the PostgreSQL database
 	db, err := sql.Open("postgres", connStr)
 	if err != nil {
-		return err
+		return fmt.Errorf("failed to open database connection: %v", err)
 	}
 	defer db.Close()
+
+	fmt.Println("Connected to the database")
 
 	// Insert the grade into a 'grades' table
 	_, err = db.Exec("INSERT INTO grades (grade) VALUES ($1)", grade)
 	if err != nil {
-		return err
+		return fmt.Errorf("failed to insert grade into database: %v", err)
 	}
 
 	fmt.Printf("Grade '%s' saved to the database.\n", grade)
