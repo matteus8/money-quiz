@@ -130,7 +130,7 @@ function displayGrade(score) {
 }
 
 function sendGradeToServer(grade) {
-  fetch('http://backend:8080/saveGrade', {
+  fetch('http://backend.default.svc.cluster.local:8080/saveGrade', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -149,6 +149,7 @@ function sendGradeToServer(grade) {
 function finishQuiz() {
   console.log('Finish Button Clicked');
   displayResults();
+  sendGradeToServer(userScore);
 }
 
 function resetQuiz() {

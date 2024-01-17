@@ -8,5 +8,5 @@ spec:
   ports:
   - protocol: TCP
     port: 80
-    targetPort: 5432
-  type: LoadBalancer
+    targetPort: 8080  # Assuming your backend application runs on port 8080
+  type: ClusterIP

@@ -73,11 +73,11 @@ func saveGradeHandler(w http.ResponseWriter, r *http.Request) {
 }
 
 func saveGradeToDatabase(grade string) error {
-	// Create the database connection string
-	connStr := fmt.Sprintf("host=%s port=%d user=%s password=%s dbname=%s sslmode=disable",
-		dbHost, dbPort, dbUser, dbPassword, dbName)
+	// Create the database connection string using the Kubernetes service DNS name
+	connStr := fmt.Sprintf("host=backend-db-service port=%d user=%s password=%s dbname=%s sslmode=disable",
+		dbPort, dbUser, dbPassword, dbName)
 
-	// Open a connection to the PostgreSQL database
+	// Open a connection to the PostgreSQL database using the Kubernetes service DNS name
 	db, err := sql.Open("postgres", connStr)
 	if err != nil {
 		return fmt.Errorf("failed to open database connection: %v", err)
