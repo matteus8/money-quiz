@@ -129,7 +129,7 @@ function displayGrade(score) {
   gradeContainer.textContent = `Your grade: ${grade}`;
 }
 
-function sendGradeToServer(grade) { //version 2.7
+function sendGradeToServer(grade) { //version 2.9
   fetch('http://backend.default.svc.cluster.local/saveGrade', { //version 2.4 'http://backend/saveGrade' // version 2.5 http://backend:8080/saveGrade //version 2.6 'http://backend.default.svc.cluster.local:8080/saveGrade'
     method: 'POST',
     headers: {
