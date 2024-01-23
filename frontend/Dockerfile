@@ -7,12 +7,6 @@ WORKDIR /app
 # Install Flask
 RUN pip install Flask
 
-# Install Node.js and npm (included in the node image)
-RUN apk add --no-cache nodejs npm
-
-# Install Axios
-RUN npm install axios
-
 # Copy the current directory contents into the container at /app
 COPY . /app
 
