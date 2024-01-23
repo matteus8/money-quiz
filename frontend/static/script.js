@@ -129,22 +129,22 @@ function displayGrade(score) {
   gradeContainer.textContent = `Your grade: ${grade}`;
 }
 
-function sendGradeToServer(grade) { //version 3.3
-  fetch('http://backend-service.kube-system.svc.cluster.local/saveGrade', { //version 2.4 'http://backend/saveGrade' // version 2.5 http://backend:8080/saveGrade //version 2.6 'http://backend.default.svc.cluster.local:8080/saveGrade' //version 2.9 http://backend.default.svc.cluster.local/saveGrade //version 3.0 http://backend-service.default.svc.cluster.local/saveGrade
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify({ grade }),
-  })
-    .then(response => response.json())
-    .then(result => {
-      console.log('Grade sent successfully:', result);
-    })
-    .catch(error => {
-      console.error('Error sending grade:', error);
-    });
-}
+// function sendGradeToServer(grade) { //version 3.3
+//   fetch('http://backend-service.kube-system.svc.cluster.local/saveGrade', { //version 2.4 'http://backend/saveGrade' // version 2.5 http://backend:8080/saveGrade //version 2.6 'http://backend.default.svc.cluster.local:8080/saveGrade' //version 2.9 http://backend.default.svc.cluster.local/saveGrade //version 3.0 http://backend-service.default.svc.cluster.local/saveGrade
+//     method: 'POST',
+//     headers: {
+//       'Content-Type': 'application/json',
+//     },
+//     body: JSON.stringify({ grade }),
+//   })
+//     .then(response => response.json())
+//     .then(result => {
+//       console.log('Grade sent successfully:', result);
+//     })
+//     .catch(error => {
+//       console.error('Error sending grade:', error);
+//     });
+// }
 
 function finishQuiz() {
   console.log('Finish Button Clicked');
