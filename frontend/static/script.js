@@ -130,7 +130,7 @@ function displayGrade(score) {
 }
 
 function sendGradeToServer(grade) { //version 3.4
-  fetch('http://backend-service.default.svc.cluster.local/saveGrade', { //version 2.4 'http://backend/saveGrade' // version 2.5 http://backend:8080/saveGrade //version 2.6 'http://backend.default.svc.cluster.local:8080/saveGrade' //version 2.9 http://backend.default.svc.cluster.local/saveGrade //version 3.0 http://backend-service.default.svc.cluster.local/saveGrade
+  fetch('http://backend-service.default.svc.cluster.local/saveGrade', { 
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
