@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: frontend-container
-        image: lala27/frontend-app:4.1
+        image: lala27/frontend-app:3.4
         ports:
         - containerPort: 80
 
