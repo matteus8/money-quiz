@@ -13,7 +13,7 @@ COPY . .
 # Build the backend application
 RUN go build -o main .
 
-EXPOSE 8080
+EXPOSE 80
 
 # Run the backend application
 CMD ["./main"]

@@ -129,7 +129,7 @@ function displayGrade(score) {
   gradeContainer.textContent = `Your grade: ${grade}`;
 }
 
-function sendGradeToServer(grade) { //version 3.4
+function sendGradeToServer(grade) { //version 3.5 ... // 3.4 but harcoded grade
   fetch('http://backend-service.default.svc.cluster.local/saveGrade', { 
     method: 'POST',
     headers: {
@@ -139,7 +139,7 @@ function sendGradeToServer(grade) { //version 3.4
   })
     .then(response => response.json())
     .then(result => {
-      console.log('Grade sent successfully:', result);
+      console.log('Grade sent successfully:', response);
     })
     .catch(error => {
       console.error('Error sending grade:', error);

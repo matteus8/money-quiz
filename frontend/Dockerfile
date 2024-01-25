@@ -14,4 +14,4 @@ COPY . /app
 EXPOSE 8080
 
 # Run app.py when the container launches
-CMD ["python", "frontend-app.py", "--host", "0.0.0.0", "--port", "8080"]
+CMD ["python", "frontend-app.py", "--host", "0.0.0.0", "--port", "80"]

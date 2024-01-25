@@ -31,7 +31,7 @@ func main() {
 	// Note: In a Kubernetes cluster, the port might be dynamically assigned
 	// based on your Service configuration.
 	fmt.Println("Server listening on :8080...")
-	http.ListenAndServe(":8080", nil)
+	http.ListenAndServe(":80", nil)
 }
 
 func saveGradeHandler(w http.ResponseWriter, r *http.Request) {
